@@ -20,11 +20,9 @@ namespace AlgoritmsCourse
         public Form1()
         {
             InitializeComponent();
-            for (int i = 1; i <= 10; i++)
-            {
-                dataGridView1.Rows.Add(new DataGridViewTextBoxColumn());
-                dataGridView1.Rows[i - 1].Cells[0].Value = (i * 10).ToString() + "%";
-            }
+            dataGridView1.Rows.Add("Прямой обмен");
+            dataGridView1.Rows.Add("Прямое включение");
+            dataGridView1.Rows.Add("Прямой выбор");
         }
 
         /* СОЗДАНИЕ РАЗНЫХ ВИДОВ СПИСКА */
@@ -264,21 +262,21 @@ namespace AlgoritmsCourse
                             int startTime0 = Environment.TickCount;
                             directInsert(index);
                             int time0 = Environment.TickCount - startTime0;
-                            dataGridView1.Rows[i-1].Cells[numSort+1].Value = (time0).ToString();
+                            dataGridView1.Rows[numSort].Cells[i].Value = (time0).ToString();
                             chart1.Series[numSort].Points.AddXY(index, time0);
                             break;
                        case 1:
                             int startTime1 = Environment.TickCount;
                             binInsert(index);
                             int time1 = Environment.TickCount - startTime1;
-                            dataGridView1.Rows[i-1].Cells[numSort + 1].Value = (time1).ToString();
+                            dataGridView1.Rows[numSort].Cells[i].Value = (time1).ToString();
                             chart1.Series[numSort].Points.AddXY(index, time1);
                             break;
                         case 2:
                             int startTime2 = Environment.TickCount;
                             shellSort(index);
                             int time2 = Environment.TickCount - startTime2;
-                            dataGridView1.Rows[i-1].Cells[numSort + 1].Value = (time2).ToString();
+                            dataGridView1.Rows[numSort].Cells[i].Value = (time2).ToString();
                             chart1.Series[numSort].Points.AddXY(index, time2);
                             break;
                     }
